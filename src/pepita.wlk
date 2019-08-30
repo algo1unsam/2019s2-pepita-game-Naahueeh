@@ -1,5 +1,6 @@
 import ciudades.*
 import wollok.game.*
+import roque.*
 
 object pepita {
 	var property energia = 100
@@ -22,7 +23,9 @@ object pepita {
 	method volaHacia(unaCiudad) {
 		if (ciudad != unaCiudad) {
 			self.move(unaCiudad.position())
-			ciudad = unaCiudad
+			if(energia>=self.energiaParaVolar(position.distance(unaCiudad.position()))){
+				ciudad = unaCiudad
+			}
 		}else{
 			game.say(self, "Ya estoy en "+ ciudad)
 		}
@@ -41,5 +44,9 @@ object pepita {
 		}
 
 	}	
+	
+	method teChoco(persona){
+		persona.daDeComer(self)
+	}
 	
 }
