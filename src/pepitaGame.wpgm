@@ -1,4 +1,5 @@
 import pepita.*
+import roque.*
 import ciudades.*
 import comidas.*
 import wollok.game.*
@@ -23,11 +24,13 @@ program PepitaGame {
 
 	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
+	keyboard.m().onPressDo { pepita.move(game.at(5,1));pepita.come(manzana);game.removeVisual(manzana) }
+	keyboard.a().onPressDo { pepita.move(game.at(5,5));pepita.come(alpiste);game.removeVisual(alpiste) }
 
-	keyboard.up().onPressDo { pepita.move(pepita.position().up(1)) }
-	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
-	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
-	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
+	keyboard.up().onPressDo { roque.move(roque.position().up(1)) }
+	keyboard.down().onPressDo { roque.move(roque.position().down(1)) }
+	keyboard.left().onPressDo { roque.move(roque.position().left(1)) }
+	keyboard.right().onPressDo { roque.move(roque.position().right(1)) }
 		
 //	START
 	game.start()
